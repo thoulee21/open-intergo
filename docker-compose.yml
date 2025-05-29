@@ -2,7 +2,7 @@ services:
   backend:
     build: ./backend
     container_name: interview-ai-backend
-    image: crpi-bnpe6pd4urnqmcm0-vpc.cn-shanghai.personal.cr.aliyuncs.com/thoulee/intergo-be:latest
+    image: crpi-bnpe6pd4urnqmcm0.cn-shanghai.personal.cr.aliyuncs.com/thoulee/intergo-be:latest
     restart: unless-stopped
     ports:
       - "5000:5000"
@@ -27,7 +27,7 @@ services:
     build:
       context: ./frontend
     container_name: interview-ai-frontend
-    image: crpi-bnpe6pd4urnqmcm0-vpc.cn-shanghai.personal.cr.aliyuncs.com/thoulee/intergo-fe:latest
+    image: crpi-bnpe6pd4urnqmcm0.cn-shanghai.personal.cr.aliyuncs.com/thoulee/intergo-fe:latest
     restart: unless-stopped
     ports:
       - "3000:3000"
