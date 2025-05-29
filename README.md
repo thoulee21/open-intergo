@@ -22,9 +22,9 @@
 
 1. **智能模拟面试官**：基于讯飞星火大模型，生成针对不同职位类型的专业面试问题
 2. **多模态分析**：
-  - 文本分析：评估回答内容的专业性、相关性和逻辑性
-  - 视频分析：分析面部表情、眼神接触、肢体语言等非语言行为
-  - 音频分析：评估语速、语调、清晰度等口头表达能力
+   - 文本分析：评估回答内容的专业性、相关性和逻辑性
+   - 视频分析：分析面部表情、眼神接触、肢体语言等非语言行为
+   - 音频分析：评估语速、语调、清晰度等口头表达能力
 3. **个性化评估报告**：生成全面的面试表现评估，包括优势、不足和改进建议
 4. **数据持久化**：保存面试历史记录，支持用户查看历史表现和进步
 
@@ -32,7 +32,8 @@
 
 ### 环境要求
 
-- Docker 和 Docker Compose
+- Node.js 16+
+- Python 3.8+
 - 讯飞星火大模型 API 访问凭证
 
 ### 使用 Docker Compose 部署（推荐）
@@ -40,8 +41,8 @@
 1. 克隆此仓库到您的本地环境
 
 ```bash
-git clone https://github.com/thoulee21/open-intergo.git
-cd open-intergo
+git clone git@github.com:thoulee21/interview-ai.git
+cd interview-ai
 ```
 
 2. 从模板创建环境变量文件并填入您的讯飞星火 API 凭证
@@ -59,17 +60,17 @@ docker compose up -d --build
 
 4. 访问应用
 
-  - 前端界面: http://localhost:3000
-  - 后端 API: http://localhost:5000/health (健康检查接口)
+   - 前端界面: http://localhost:3000
+   - 后端 API: http://localhost:5000/health (健康检查接口)
 
 5. 查看日志（如果需要）
 
 ```bash
 # 查看前端日志
-docker compose logs -f frontend
+docker compose logs -f ghcr.io/thoulee21/interview-ai/frontend
 
 # 查看后端日志
-docker compose logs -f backend
+docker compose logs -f ghcr.io/thoulee21/interview-ai/backend
 ```
 
 6. 停止服务
@@ -87,13 +88,6 @@ docker compose down
 3. **实用价值**：帮助学生在舒适的环境中练习面试技能，获取专业反馈
 4. **可扩展性**：系统架构支持后续功能扩展和优化
 
-## 代码说明
-
-本仓库中的代码已经过混淆处理以保护知识产权，但完全保持了原有功能。混淆处理包括：
-
-- **前端代码**：Next.js 构建优化和代码压缩
-- **后端代码**：使用 PyArmor 进行 Python 代码混淆保护
-
 ## 工作进度
 
 - [x] 项目架构设计
@@ -103,7 +97,6 @@ docker compose down
 - [x] 基本面试流程实现
 - [x] 视频分析算法优化
 - [x] 音频分析算法优化
-- [x] 代码混淆保护
 - [ ] 用户体验完善
 - [ ] 综合测试与修复
 
@@ -115,8 +108,3 @@ docker compose down
 - **实时反馈机制**：
   - 在面试过程中提供实时反馈，而不只是在面试结束后
   - 可以增加面部表情、姿态等实时分析提示
-
-## 技术支持
-
-如果您在部署或使用过程中遇到问题，请通过 GitHub Issues 联系我们。
-
