@@ -91,7 +91,7 @@ docker compose down
 
 本仓库中的代码已经过混淆处理以保护知识产权，但完全保持了原有功能。混淆处理包括：
 
-- **前端代码**：使用 Terser 进行 JavaScript/TypeScript 代码混淆和压缩
+- **前端代码**：Next.js 构建优化和代码压缩
 - **后端代码**：使用 PyArmor 进行 Python 代码混淆保护
 
 ## 工作进度
