@@ -32,8 +32,7 @@
 
 ### 环境要求
 
-- Node.js 16+
-- Python 3.8+
+- Docker 和 Docker Compose
 - 讯飞星火大模型 API 访问凭证
 
 ### 使用 Docker Compose 部署（推荐）
@@ -41,8 +40,8 @@
 1. 克隆此仓库到您的本地环境
 
 ```bash
-git clone git@github.com:thoulee21/interview-ai.git
-cd interview-ai
+git clone https://github.com/thoulee21/open-intergo.git
+cd open-intergo
 ```
 
 2. 从模板创建环境变量文件并填入您的讯飞星火 API 凭证
@@ -67,10 +66,10 @@ docker compose up -d --build
 
 ```bash
 # 查看前端日志
-docker compose logs -f ghcr.io/thoulee21/interview-ai/frontend
+docker compose logs -f frontend
 
 # 查看后端日志
-docker compose logs -f ghcr.io/thoulee21/interview-ai/backend
+docker compose logs -f backend
 ```
 
 6. 停止服务
@@ -88,6 +87,13 @@ docker compose down
 3. **实用价值**：帮助学生在舒适的环境中练习面试技能，获取专业反馈
 4. **可扩展性**：系统架构支持后续功能扩展和优化
 
+## 代码说明
+
+本仓库中的代码已经过混淆处理以保护知识产权，但完全保持了原有功能。混淆处理包括：
+
+- **前端代码**：使用 Terser 进行 JavaScript/TypeScript 代码混淆和压缩
+- **后端代码**：使用 PyArmor 进行 Python 代码混淆保护
+
 ## 工作进度
 
 - [x] 项目架构设计
@@ -97,6 +103,7 @@ docker compose down
 - [x] 基本面试流程实现
 - [x] 视频分析算法优化
 - [x] 音频分析算法优化
+- [x] 代码混淆保护
 - [ ] 用户体验完善
 - [ ] 综合测试与修复
 
@@ -108,4 +115,8 @@ docker compose down
 - **实时反馈机制**：
   - 在面试过程中提供实时反馈，而不只是在面试结束后
   - 可以增加面部表情、姿态等实时分析提示
+
+## 技术支持
+
+如果您在部署或使用过程中遇到问题，请通过 GitHub Issues 联系我们。
 

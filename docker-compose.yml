@@ -1,0 +1,35 @@
+services:
+  backend:
+    build: ./backend
+    container_name: interview-ai-backend
+    image: crpi-bnpe6pd4urnqmcm0-vpc.cn-shanghai.personal.cr.aliyuncs.com/thoulee/intergo-be:latest
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - XUNFEI_APP_ID=${XUNFEI_APP_ID}
+      - XUNFEI_API_KEY=${XUNFEI_API_KEY}
+      - XUNFEI_API_SECRET=${XUNFEI_API_SECRET}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - FLASK_DEBUG=${FLASK_DEBUG}
+      # Azure AD 配置
+      - AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
+      - AZURE_TENANT_ID=${AZURE_TENANT_ID}
+      - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
+      # Azure Storage 配置
+      - AZURE_STORAGE_ACCOUNT_URL=${AZURE_STORAGE_ACCOUNT_URL}
+      - AZURE_STORAGE_CONTAINER_NAME=${AZURE_STORAGE_CONTAINER_NAME}
+    volumes:
+      - ./backend/data:/app/data
+      - ./backend/logs:/app/logs
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: interview-ai-frontend
+    image: crpi-bnpe6pd4urnqmcm0-vpc.cn-shanghai.personal.cr.aliyuncs.com/thoulee/intergo-fe:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
