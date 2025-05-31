@@ -8,7 +8,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /app
 
-# 安装系统依赖
+# 安装系统依赖和中文字体
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y \
     libgl1-mesa-glx \
@@ -17,7 +17,14 @@ RUN apt-get install -y \
     build-essential \
     portaudio19-dev \
     python3-dev \
+    fonts-wqy-microhei \
+    fonts-wqy-zenhei \
+    fonts-noto-cjk \
+    fontconfig \
     && rm -rf /var/lib/apt/lists/*
+
+# 更新字体缓存
+RUN fc-cache -fv
 
 # 安装 poetry
 RUN pip install --upgrade pip
