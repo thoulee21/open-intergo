@@ -1,6 +1,6 @@
 [project]
 name = "interview-backend"
-version = "1.5.0"
+version = "1.6.0"
 description = ""
 authors = [
     {name = "thoulee",email = "thou_lee@outlook.com"}
@@ -32,6 +32,7 @@ dependencies = [
     "pdfminer-six (>=20250506,<20250507)",
     "azure-identity (>=1.23.0,<2.0.0)",
     "azure-storage-blob (>=12.25.1,<13.0.0)",
+    "reportlab (>=4.4.1,<5.0.0)",
 ]
 
 [tool.poetry]
